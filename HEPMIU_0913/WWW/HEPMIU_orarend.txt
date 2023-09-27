@@ -1,0 +1,16 @@
+<HEPMIU_orarend>
+
+	<kurzus id="" tipus>
+		<kurzusnev></kurzusnev>
+		<szak></szak>
+		<oktato></oktato>
+		<helyszin>
+			
+		</helyszin>
+		<idopont>
+			<nap></nap>
+			<kezdet></kezdet>
+			<vege></vege>
+		</idopont>	
+	</kurzus>
+</orarend>

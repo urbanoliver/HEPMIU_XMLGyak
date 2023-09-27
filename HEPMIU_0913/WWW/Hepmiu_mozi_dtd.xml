@@ -1,0 +1,19 @@
+<!DOCTYPE mozi [
+
+    <!ELEMENT mozi (film*)>
+    <ELEMENT film(rendezo,szinesz,iro)>
+    <!ATTLIST film id ID #REQUIRED
+    <!ATTLIST film mufaj(horror | vígjáték )
+    <!ELEMENT film (id,mufaj)>
+        <!ELEMENT rendezo (id,nev)>
+        <!ATTLIST rendezo id ID #REQUIRED
+        <!ELEMENT szinesz (id,nev)>
+        <!ATTLIST szinesz id ID #REQUIRED
+        <!ELEMENT iro (id)>
+        <!ATTLIST iro id #REQUIRED
+    
+    <!ATTLIST rendezo id #REQUIRED>
+    <!ATTLIST iro id #REQUIRED>
+
+    
+]

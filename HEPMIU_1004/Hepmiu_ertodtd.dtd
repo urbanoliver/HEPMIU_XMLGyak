@@ -1,0 +1,8 @@
+<!ELEMENT Hepmiu_modell(A*,B*,c*)>
+
+<!ELEMENT A(a?,b,c+)>
+    <!ATTLIST a kod id #REQUIRED>
+    <!ATTLIST b
+    <!ATTLIST c
+<!ELEMENT B(C*)>
+<!ELEMENT B(a?,b,c+)>

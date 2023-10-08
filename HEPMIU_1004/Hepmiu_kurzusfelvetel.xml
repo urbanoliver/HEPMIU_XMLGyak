@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Hepimu_kurzusfelvetel >
+
+<Hepimu_kurzusfelvetel tanev="2023/2024" egyetem="ME">
+
+    <hallgato id="HEPIMU.ME">
+        <nev>Urbán Olivér</nev>
+        <szulev>2002.10.31.</szulev>
+        <szak evf="5">Mérnökinformatikus Bsc</szak>
+    </hallgato>
+
+    <kurzusok>
+        <kurzus id="GEIAL332-B">
+            <kurzusnev>Adatkezelés XML környezetben</kurzusnev>
+            <kredit>5</kredit>
+            <hely>XXXII.</hely>
+            <idopont>Kedd 12:00-13:30</idopont>
+            <oktato>Dr. Bednarik László</oktato>
+        </kurzus>
+
+        <kurzus id="GEIAL31H-B" jovahagyas="igen">
+            <kurzusnev></kurzusnev>
+            <kredit>5</kredit>
+            <hely>Info I/103.</hely>
+            <idopont>Hétfő 10:00-12:00</idopont>
+            <oktato>Dr. Hornyák Olivér</oktato>
+        </kurzus>
+    </kurzusok>
+
+</Hepimu_kurzusfelvetel>

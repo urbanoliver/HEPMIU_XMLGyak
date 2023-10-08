@@ -1,8 +1,13 @@
-<!ELEMENT Hepmiu_modell(A*,B*,c*)>
-
-<!ELEMENT A(a?,b,c+)>
-    <!ATTLIST a kod id #REQUIRED>
-    <!ATTLIST b
-    <!ATTLIST c
-<!ELEMENT B(C*)>
-<!ELEMENT B(a?,b,c+)>
+<!ELEMENT Hepmiu_modell (A,B,C)>
+<!ELEMENT A (#PCDATA|b|B|c)*>
+    <!ATTLIST A a NMTOKEN #IMPLIED>
+<!ELEMENT b (#PCDATA|x|y)*>
+<!ELEMENT x (#PCDATA)>
+<!ELEMENT y (#PCDATA)>
+<!ELEMENT B (#PCDATA|b|A)*>
+    <!ATTLIST B a NMTOKEN #IMPLIED>
+<!ELEMENT c (d,e)>
+<!ELEMENT d (#PCDATA)>
+<!ELEMENT e (#PCDATA)>
+<!ELEMENT C (b,B)>
+    <!ATTLIST C a NMTOKEN #REQUIRED>

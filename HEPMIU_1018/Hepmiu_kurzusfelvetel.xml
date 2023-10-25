@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Hepmiu_kurzusfelvetel tanev="2023/24 I.félév" egyetem="ME">
+    <hallgato id="HEPMIU_ME">
+        <hnev>Urbán Olivér</hnev>
+        <szulev>2002-10-31</szulev>
+        <szak>Mérnökinformatikus</szak>
+    </hallgato>
+
+    <kurzusok>
+        <kurzus id="GEIAL332-B" jovahagyas="igen">
+            <kurzusnev>Adatkezelés XML környezetben</kurzusnev>
+            <kredit>5</kredit>
+            <hely>XXXII.előadó</hely>
+            <idopont>Kedd 12:00-14:00</idopont>
+            <oktato>Dr. Bednarik László</oktato>
+        </kurzus>
+        <kurzus id="GEIAL331-B">
+            <kurzusnev>Webtechnológiák 1.</kurzusnev>
+            <kredit>5</kredit>
+            <hely>XXX A1/305.</hely>
+            <idopont>Hétfő 14:00-16:00</idopont>
+            <oktato>Dr. Agárdi Anita</oktato>
+        </kurzus>
+        <kurzus id="GEIK130-B">
+            <kurzusnev>Mesterséges intelligencia alapok</kurzusnev>
+            <kredit>5</kredit>
+            <hely>XXXII.előadó</hely>
+            <idopont>Kedd 10:00-12:00</idopont>
+            <oktato>Dr.Fazekas Levente</oktato>
+        </kurzus>
+        <kurzus id="GEIAL336-B">
+            <kurzusnev>WEB-es alkalmazások</kurzusnev>
+            <kredit>5</kredit>
+            <hely>Info I/103.</hely>
+            <idopont>Kedd 14:00-16:00</idopont>
+            <oktato>Dr. Árvai László</oktato>
+        </kurzus>
+        <kurzus id="">
+            <kurzusnev>Integrált vállalati rendszerek</kurzusnev>
+            <kredit>5</kredit>
+            <hely>Info fsz./15</hely>
+            <idopont>Szerda 12:00-14:00</idopont>
+            <oktato>Dr. Samad Dadvandipour</oktato>
+        </kurzus>
+    </kurzusok>
+
+
+
+</Hepmiu_kurzusfelvetel>

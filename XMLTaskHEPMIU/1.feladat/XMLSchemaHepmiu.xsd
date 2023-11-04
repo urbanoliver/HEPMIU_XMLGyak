@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
+
+<!-- SAJÁT TÍPUS MEGHATÁROZÁSA-->
+
+<xs:simpleType name="fejlettségTipus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="erős"/>
+            <xs:enumeration value="közepes"/>
+			<xs:enumeration value="gyenge"/>
+			
+		</xs:restriction>
+</xs:simpleType>
+
+
+<!-- KOMLEX TÍPUSOK MEGHATÁROZÁSA-->
+  <xs:element name="Hadsereg_HEPMIU">
+    <xs:complexType>
+      <xs:sequence>
+
+<!-- HADSEREG EGYED SÉMÁJA-->
+        <xs:element name="Hadsereg">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="létszám" type="xs:int" />
+              <xs:element name="országNév" type="xs:string" />
+              <xs:element name="pozíció" type="xs:string" />
+              <xs:element name="fejlettség">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ütőképesség" type="xs:fejlettségTipus" />
+                    <xs:element name="támadás" type="xs:fejlettségTipus" />
+                    <xs:element name="védekezés" type="xs:fejlettségTipus" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="hadseregID" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--FŐPARANCSNOK EGYED SÉMÁJA-->
+        <xs:element name="Főparancsnok">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="név" type="xs:string" />
+              <xs:element name="rang" type="xs:string" />
+              <xs:element name="életkor" type="xs:int" />
+              <xs:element name="szolgIdő" type="unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="F_sorszám" type="xs:int" use="required" />
+            <xs:attribute name="irányítja" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--TISZTEK EGYED SÉMÁJA-->
+        <xs:element maxOccurs="unbounded" name="Tisztek">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="név" type="xs:string" />
+              <xs:element name="rang" type="xs:string" />
+              <xs:element name="életkor" type="xs:int" />
+              <xs:element name="szolgIdő" type="unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="T_sorszám" type="xs:int" use="required" />
+            <xs:attribute name="F_parancsnok" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--KATONÁK EGYED SÉMÁJA-->
+        <xs:element maxOccurs="unbounded" name="Katonák">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="név" type="xs:string" />
+              <xs:element name="rang" type="xs:string" />
+              <xs:element name="életkor" type="xs:int" />
+              <xs:element name="szolgIdő" type="unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="K_sorszám" type="xs:int" use="required" />
+            <xs:attribute name="T_parancsnok" type="xs:int" use="required" />
+            <xs:attribute name="szolgHelye" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--SZFÖLDI ERŐK EGYED SÉMÁJA-->
+        <xs:element name="Szárazföldi_erők">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="létszám" type="xs:int" />
+              <xs:element name="SzföldiJárművekSzáma" type="xs:int" />
+            </xs:sequence>
+            <xs:attribute name="SzE_ID" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--TENGERÉSZET EGYED SÉMÁJA-->
+        <xs:element name="Tengerészet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="létszám" type="xs:int" />
+              <xs:element name="HajókSzáma" type="xs:int" />
+            </xs:sequence>
+            <xs:attribute name="Teng_ID" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+<!--LÉGIERŐ EGYED SÉMÁJA-->
+        <xs:element name="Légierő">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="létszám" type="xs:int" />
+              <xs:element name="RepülőkSzáma" type="xs:int" />
+            </xs:sequence>
+            <xs:attribute name="Leg_ID" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

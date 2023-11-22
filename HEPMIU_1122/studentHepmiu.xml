@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<class>
+    <student id="4512">
+        <keresztnév>Gyula</keresztnév>
+        <vezetéknév>Kovács</vezetéknév>
+        <becenév>Gyuszi</becenév>
+        <kor>25</kor>
+    </student>
+
+     <student id="7894">
+        <keresztnév>István</keresztnév>
+        <vezetéknév>Tóth</vezetéknév>
+        <becenév>Pisti</becenév>
+        <kor>16</kor>
+    </student>
+
+     <student id="4212">
+        <keresztnév>Béla</keresztnév>
+        <vezetéknév>Szabó</vezetéknév>
+        <becenév>Bélus</becenév>
+        <kor>23</kor>
+    </student>
+    
+</class>

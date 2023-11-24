@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Hadsereg_HEPMIU xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
+    
+    <!--HADSEREG PÉLDÁNYOSÍTÁSA-->
+    
+    <Hadsereg hadseregID="1">
+            
+        <létszám>9000</létszám>
+            
+        <országNév>Hungary</országNév>
+            
+        <pozíció>Dél-Alföld</pozíció>
+            
+        <fejlettség>
+                    
+            <ütőképesség>közepes</ütőképesség>
+                    
+            <támadás>erős</támadás>
+                    
+            <védekezés>gyenge</védekezés>
+                
+        </fejlettség>
+        
+    </Hadsereg>
+    
+    <!--FŐPARANCSNOK PÉLDÁNYOSÍTÁSA-->
+    
+    <Főparancsnok F_sorszám="4545" irányítja="1">
+            
+        <név>Nagy József</név>
+            
+        <rang>vezérezredes</rang>
+            
+        <életkor>56</életkor>
+            
+        <szolgIdő>30</szolgIdő>
+        
+    </Főparancsnok>
+    
+    <!--TISZTEK PÉLDÁNYOSÍTÁSA-->
+    
+    <Tisztek F_parancsnok="4545" T_sorszám="2323">
+            
+        <név>Király Zoltán</név>
+            
+        <rang>százados</rang>
+            
+        <életkor>42</életkor>
+            
+        <szolgIdő>22</szolgIdő>
+        
+    </Tisztek>
+    
+    <Tisztek F_parancsnok="4545" T_sorszám="2336">
+            
+        <név>Nagy Zsolt</név>
+            
+        <rang>ezredes</rang>
+            
+        <életkor>48</életkor>
+            
+        <szolgIdő>28</szolgIdő>
+        
+    </Tisztek>
+    
+    <Tisztek F_parancsnok="4545" T_sorszám="9836">
+            
+        <név>Szabó Gyula</név>
+            
+        <rang>őrnagy</rang>
+            
+        <életkor>50</életkor>
+            
+        <szolgIdő>30</szolgIdő>
+        
+    </Tisztek>
+    
+    <!--KATONÁK PÉLDÁNYOSÍTÁSA-->
+    
+    <Katonák K_sorszám="7874" T_parancsnok="9836" szolgHelye="56">
+            
+        <név>Szabó Kristóf</név>
+            
+        <rang>tizedes</rang>
+            
+        <életkor>20</életkor>
+            
+        <szolgIdő>1</szolgIdő>
+        
+    </Katonák>
+    
+    <Katonák K_sorszám="4921" T_parancsnok="9836" szolgHelye="56">
+            
+        <név>Tóth Bendegúz</név>
+            
+        <rang>hadnagy</rang>
+            
+        <életkor>28</életkor>
+            
+        <szolgIdő>10</szolgIdő>
+        
+    </Katonák>
+    
+    <Katonák K_sorszám="7123" T_parancsnok="9836" szolgHelye="56">
+            
+        <név>Tóth Bendegúz</név>
+            
+        <rang>tizedes</rang>
+            
+        <életkor>23</életkor>
+            
+        <szolgIdő>3</szolgIdő>
+        
+    </Katonák>
+    
+    <!--FEGYVERNEMEK  PÉLDÁNYOSÍTÁSA-->
+    
+    <Szárazföldi_erők SzE_ID="56">
+            
+        <létszám>5000</létszám>
+            
+        <SzföldiJárművekSzáma>250</SzföldiJárművekSzáma>
+        
+    </Szárazföldi_erők>
+    
+    <Tengerészet Teng_ID="23">
+            
+        <létszám>2000</létszám>
+            
+        <HajókSzáma>5</HajókSzáma>
+        
+    </Tengerészet>
+    
+    <Légierő Leg_ID="18">
+            
+        <létszám>2000</létszám>
+            
+        <RepülőkSzáma>120</RepülőkSzáma>
+        
+    </Légierő>
+    
+</Hadsereg_HEPMIU>

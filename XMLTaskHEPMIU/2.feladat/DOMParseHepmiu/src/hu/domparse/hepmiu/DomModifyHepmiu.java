@@ -17,33 +17,36 @@ public class DomModifyHepmiu {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(xmlFile);
 			doc.getDocumentElement().normalize();
-			
+
 			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("Adja meg az element nevet!");
-			String e_Nev = sc.nextLine();
-			System.out.println("Adja meg az element ID-jat!");
-			String e_ID = sc.nextLine();
-			System.out.println("Adja meg a modositani kivant attributumot!");
-			String e_Attrib = sc.nextLine();
-			System.out.println("Adja meg az attributum uj erteket!");
-			String e_UjErtek = sc.nextLine();
 
-			// Modify attributes and values based on element ID
-			modifyAttributesByID(doc,e_Nev, e_ID, e_Attrib, e_UjErtek);
+			System.out.println("Adja meg a módosítani kívánt element nevét!");
+			String elementName = sc.nextLine();
 
-			// Write the updated content to the same XML file
-			writeToFile(doc, "your_modified_xml_file.xml");
+			System.out.println("Adja meg a módosítani kívánt element ID-ját!");
+			String elementID = sc.nextLine();
 
-			System.out.println("Attributes and values modified successfully.");
+			System.out.println("Adja meg a módosítani kívánt element attribútumát vagy gyerekének nevét!");
+			String attributeNameOrChildName = sc.nextLine();
+
+			System.out.println("Adja meg az új értékét");
+			String newValue = sc.nextLine();
+
+			modifyElementByID(doc, elementName, elementID, attributeNameOrChildName, newValue);
+
+			sc.close();
+
+			writeToFile(doc, "XMLHepmiu1.xml");
+
+			System.out.println("Adat sikeresen módosítva!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	// Modify attributes and values based on element ID
-	public static void modifyAttributesByID(Document doc,String elementName, String elementID, String attributeName, String newValue) {
+	public static void modifyElementByID(Document doc, String elementName, String elementID,
+			String attributeNameOrChildName, String newValue) {
 		NodeList nodeList = doc.getElementsByTagName(elementName);
 
 		for (int i = 0; i < nodeList.getLength(); i++) {
@@ -51,18 +54,71 @@ public class DomModifyHepmiu {
 
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) node;
-				// Check if the element has the desired ID
-				if (element.getAttribute("id").equals(elementID)) {
-					// Modify attributes and values
-					element.setAttribute("your_attribute_name", attributeName);
-					element.getElementsByTagName("your_value_element").item(0).setTextContent(newValue);
-					// Add more lines for other attributes or values as needed
+
+				if (elementName.equalsIgnoreCase("Katonák") || elementName.equalsIgnoreCase("Tisztek")
+						|| elementName.equalsIgnoreCase("Fõparancsnok")) {
+					if (element.getAttribute(elementName.charAt(0) + "_sorszám").equals(elementID)) {
+
+						if (element.hasAttribute(attributeNameOrChildName)) {
+							element.setAttribute(attributeNameOrChildName, newValue);
+						} else {
+
+							NodeList childNodes = element.getElementsByTagName(attributeNameOrChildName);
+							if (childNodes.getLength() > 0) {
+								Node childNode = childNodes.item(0);
+								childNode.setTextContent(newValue);
+							} else {
+								System.out.println("Adat típus nem található: " + attributeNameOrChildName);
+							}
+						}
+					}
 				}
+
+				else if (elementName.equalsIgnoreCase("Szárazföldi_erõk") || elementName.equalsIgnoreCase("Tengerészet")
+						|| elementName.equalsIgnoreCase("Légierõ")) {
+					if (element.getAttribute("SzE_ID").equals(elementID)
+							|| element.getAttribute("Teng_ID").equals(elementID)
+							|| element.getAttribute("Leg_ID").equals(elementID)) {
+
+						if (element.hasAttribute(attributeNameOrChildName)) {
+							element.setAttribute(attributeNameOrChildName, newValue);
+						} else {
+
+							NodeList childNodes = element.getElementsByTagName(attributeNameOrChildName);
+							if (childNodes.getLength() > 0) {
+								Node childNode = childNodes.item(0);
+								childNode.setTextContent(newValue);
+							} else {
+								System.out.println("Adat típus nem található: " + attributeNameOrChildName);
+							}
+						}
+					}
+
+				}
+
+				else if (elementName.equalsIgnoreCase("Hadsereg")) {
+					if (element.getAttribute("hadseregID").equals(elementID)) {
+
+						if (element.hasAttribute(attributeNameOrChildName)) {
+							element.setAttribute(attributeNameOrChildName, newValue);
+						} else {
+
+							NodeList childNodes = element.getElementsByTagName(attributeNameOrChildName);
+							if (childNodes.getLength() > 0) {
+								Node childNode = childNodes.item(0);
+								childNode.setTextContent(newValue);
+							} else {
+								System.out.println("Adat típus nem található: " + attributeNameOrChildName);
+							}
+						}
+					}
+
+				}
+
 			}
 		}
 	}
 
-	// Write the updated content to a new XML file
 	public static void writeToFile(Document doc, String filename) {
 		try {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -76,5 +132,4 @@ public class DomModifyHepmiu {
 			e.printStackTrace();
 		}
 	}
-
 }

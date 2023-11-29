@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<class>
+    <student id = "01">
+        <vezeteknev>Urbán</vezeteknev>
+        <keresztnev>Olivér</keresztnev>
+        <becenev>Olivér</becenev>
+        <kor>21</kor>
+        <osztondij>25000</osztondij>
+    </student>
+
+     <student id = "02">
+        <vezeteknev>Tóth</vezeteknev>
+        <keresztnev>Benedek</keresztnev>
+        <becenev>Beni</becenev>
+        <kor>25</kor>
+        <osztondij>50000</osztondij>
+    </student>
+
+     <student id = "03">
+        <vezeteknev>Szabó</vezeteknev>
+        <keresztnev>István</keresztnev>
+        <becenev>Pisti</becenev>
+        <kor>19</kor>
+        <osztondij>15000</osztondij>
+    </student>
+
+
+</class>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<class xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="studentDLWGQZ.xsd">
+    <student id="01">
+        <keresztnev>Oliver</keresztnev>
+        <vezeteknev>Urban</vezeteknev>
+        <becenev>Oliver</becenev>
+        <kor>21</kor>
+    </student>
+    <student id="02">
+        <keresztnev>Balazs</keresztnev>
+        <vezeteknev>Juhasz</vezeteknev>
+        <becenev>Levbalui</becenev>
+        <kor>21</kor>
+    </student>
+    <student id="03">
+        <keresztnev>Tamas</keresztnev>
+        <vezeteknev>Toth</vezeteknev>
+        <becenev>Tomi</becenev>
+        <kor>23</kor>
+    </student>
+    <student id="04">
+        <keresztnev>Lajos</keresztnev>
+        <vezeteknev>Kertesz</vezeteknev>
+        <becenev>Jani</becenev>
+        <kor>19</kor>
+    </student>
+    <student id="05">
+        <keresztnev>Szabolcs</keresztnev>
+        <vezeteknev>Szerves</vezeteknev>
+        <becenev>Szabika</becenev>
+        <kor>21</kor>
+    </student>
+</class>

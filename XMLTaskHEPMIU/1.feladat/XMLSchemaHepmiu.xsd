@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
 
-<!-- SAJÁT TÍPUS MEGHATÁROZÁSA-->
+<!-- SAJÁT TÍPUSOK MEGHATÁROZÁSA-->
 
 <xs:simpleType name="fejlettségTipus">
 		<xs:restriction base="xs:string">
@@ -11,6 +11,107 @@
 			
 		</xs:restriction>
 </xs:simpleType>
+
+
+ <xs:simpleType name="F_sorszám_tipus">
+        <xs:restriction base="xs:string">
+            <xs:length value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <xs:simpleType name="T_sorszám_tipus">
+        <xs:restriction base="xs:string">
+            <xs:length value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="K_sorszám_tipus">
+        <xs:restriction base="xs:string">
+            <xs:length value="4" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="HadnemID_tipus">
+        <xs:restriction base="xs:string">
+            <xs:length value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+
+<!--ELSŐDLEGES KULCSOK-->
+    <xs:key name="Főparancsnok_kulcsa">
+        <xs:selector xpath="Főparancsnok" />
+        <xs:field xpath="@F_parancsnok" />
+    </xs:key>
+
+    <xs:key name="Hadsereg_kulcsa">
+        <xs:selector xpath="Hadsereg" />
+        <xs:field xpath="@hadseregID" />
+    </xs:key>
+
+    <xs:key name="Tisztek_kulcsa">
+        <xs:selector xpath="Tisztek" />
+        <xs:field xpath="@T_sorszám" />
+    </xs:key>
+
+    <xs:key name="Katonák_kulcsa">
+        <xs:selector xpath="Katonák" />
+        <xs:field xpath="@K_sorszám" />
+    </xs:key>
+
+    <xs:key name="Szárazföldi_erők_kulcsa">
+        <xs:selector xpath="Szárazföldi_erők" />
+        <xs:field xpath="@SzE_ID" />
+    </xs:key>
+
+     <xs:key name="Légierő_kulcsa">
+        <xs:selector xpath="Légierő" />
+        <xs:field xpath="@Leg_ID" />
+    </xs:key>
+
+     <xs:key name="Tengerészet_kulcsa">
+        <xs:selector xpath="Tengerészet" />
+        <xs:field xpath="@Teng_ID" />
+    </xs:key>
+
+
+    <!--IDEGEN KULCSOK-->
+    <xs:keyref name="Hadsereg_Főparancsnok_kulcsa" refer="hadseregID">
+        <xs:selector xpath="Főparancsnok" />
+        <xs:field xpath="@irányítja" />
+    </xs:keyref>
+
+    <xs:keyref name="Főparancsnok_Tisztek_kulcsa" refer="F_sorszám">
+        <xs:selector xpath="Tisztek" />
+        <xs:field xpath="@parancsol" />
+    </xs:keyref>
+
+    <xs:keyref name="Tisztek_Katonák_kulcsa" refer="T_sorszám">
+        <xs:selector xpath="Katonák" />
+        <xs:field xpath="@parancsol" />
+    </xs:keyref>
+
+    <xs:keyref name="Ügy_Ítéletet_hoz_kulcs" refer="Ügy_kulcs">
+        <xs:selector xpath="Ítéletet_hoz" />
+        <xs:field xpath="@Ügy" />
+    </xs:keyref>
+
+    <xs:keyref name="Katonák_Szárazföldi_erők_kulcsa" refer="SzE_ID">
+        <xs:selector xpath="Szárazföldi_erők" />
+        <xs:field xpath="@szolgál" />
+    </xs:keyref>
+
+    <xs:keyref name="Katonák_Tengerészet_kulcsa" refer="Teng_ID">
+        <xs:selector xpath="Tengerészet" />
+        <xs:field xpath="@szolgál" />
+    </xs:keyref>
+
+    <xs:keyref name="Katonák_Légierő_kulcsa" refer="Leg_ID">
+        <xs:selector xpath="Légierő" />
+        <xs:field xpath="@szolgál" />
+    </xs:keyref>
 
 
 <!-- KOMLEX TÍPUSOK MEGHATÁROZÁSA-->
@@ -50,7 +151,7 @@
               <xs:element name="életkor" type="xs:int" />
               <xs:element name="szolgIdő" type="unsignedByte" />
             </xs:sequence>
-            <xs:attribute name="F_sorszám" type="xs:int" use="required" />
+            <xs:attribute name="F_sorszám" type="F_sorszám_tipus" use="required" />
             <xs:attribute name="irányítja" type="xs:int" use="required" />
           </xs:complexType>
         </xs:element>
@@ -66,8 +167,8 @@
               <xs:element name="életkor" type="xs:int" />
               <xs:element name="szolgIdő" type="unsignedByte" />
             </xs:sequence>
-            <xs:attribute name="T_sorszám" type="xs:int" use="required" />
-            <xs:attribute name="F_parancsnok" type="xs:int" use="required" />
+            <xs:attribute name="T_sorszám" type="T_sorszám_tipus" use="required" />
+            <xs:attribute name="F_parancsnok" type="F_sorszám_tipus" use="required" />
           </xs:complexType>
         </xs:element>
 
@@ -82,9 +183,9 @@
               <xs:element name="életkor" type="xs:int" />
               <xs:element name="szolgIdő" type="unsignedByte" />
             </xs:sequence>
-            <xs:attribute name="K_sorszám" type="xs:int" use="required" />
-            <xs:attribute name="T_parancsnok" type="xs:int" use="required" />
-            <xs:attribute name="szolgHelye" type="xs:int" use="required" />
+            <xs:attribute name="K_sorszám" type="K_sorszám_tipus" use="required" />
+            <xs:attribute name="T_parancsnok" type="T_sorszám_tipus" use="required" />
+            <xs:attribute name="szolgHelye" type="HadnemID_tipus" use="required" />
           </xs:complexType>
         </xs:element>
 

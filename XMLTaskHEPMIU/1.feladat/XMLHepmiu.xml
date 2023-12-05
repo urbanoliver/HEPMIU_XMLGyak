@@ -68,7 +68,7 @@ xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
 </Katonák>
 
 <Katonák K_sorszám="7123" T_parancsnok="9836" szolgHelye="56">
-    <név>Nagy Márton</név>
+    <név>Tóth Bendegúz</név>
     <rang>tizedes</rang>
     <életkor>23</életkor>
     <szolgIdő>3</szolgIdő>

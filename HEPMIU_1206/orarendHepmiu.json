@@ -1,0 +1,138 @@
+{
+    "HEPMIU_orarend": {
+      "ora": [
+        {
+          "targy": "Szoftvertesztelés",
+          "idopont": {
+            "nap": "Hétfő",
+            "tol": "10:00",
+            "ig": "12:00"
+          },
+          "helyszin": "Info I/103",
+          "oktato": "Dr. Hornyák Olivér",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Szoftvertesztelés",
+          "idopont": {
+            "nap": "Hétfő",
+            "tol": "12:00",
+            "ig": "14:00"
+          },
+          "helyszin": "Info I/103",
+          "oktato": "Dr. Hornyák Olivér",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "WEB technológiák 1.",
+          "idopont": {
+            "nap": "Hétfő",
+            "tol": "14:00",
+            "ig": "16:00"
+          },
+          "helyszin": "XXX. A1/305.",
+          "oktato": "Agárdi Anita",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "WEB technológiák 1.",
+          "idopont": {
+            "nap": "Hétfő",
+            "tol": "16:00",
+            "ig": "18:00"
+          },
+          "helyszin": "Info II/202",
+          "oktato": "Agárdi Anita",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Mesterséges intelligencia",
+          "idopont": {
+            "nap": "Kedd",
+            "tol": "8:00",
+            "ig": "10:00"
+          },
+          "helyszin": "XXXXII. előadó",
+          "oktato": "Dr. Fazekas Levente",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Adatkezelés XML-ben",
+          "idopont": {
+            "nap": "Kedd",
+            "tol": "12:00",
+            "ig": "14:00"
+          },
+          "helyszin": "XXXII.",
+          "oktato": "Dr. Bednarik László",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "WEB-es alkalmazások (C#)",
+          "idopont": {
+            "nap": "Kedd",
+            "tol": "14:00",
+            "ig": "16:00"
+          },
+          "helyszin": "Info I/101",
+          "oktato": "Árvai László Lajos",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "WEB-es alkalmazások (C#)",
+          "idopont": {
+            "nap": "Kedd",
+            "tol": "16:00",
+            "ig": "18:00"
+          },
+          "helyszin": "Info I/101",
+          "oktato": "Dr. Mileff Péter",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Adatkezelés XML-ben",
+          "idopont": {
+            "nap": "Szerda",
+            "tol": "10:00",
+            "ig": "12:00"
+          },
+          "helyszin": "Info I/101",
+          "oktato": "Dr. Bednarik László",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Integrált vállalati rendszerek",
+          "idopont": {
+            "nap": "Szerda",
+            "tol": "12:00",
+            "ig": "14:00"
+          },
+          "helyszin": "X. A1/218.",
+          "oktato": "Dr. Samad Dadvandipour",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Integrált vállalati rendszerek",
+          "idopont": {
+            "nap": "Szerda",
+            "tol": "14:00",
+            "ig": "16:00"
+          },
+          "helyszin": "Info fsz./15",
+          "oktato": "Dr. Kulcsárné Dr. Forrai Mónika",
+          "szak": "Mérnökinformatikus"
+        },
+        {
+          "targy": "Mesterséges intelligencia",
+          "idopont": {
+            "nap": "Csütörtök",
+            "tol": "10:00",
+            "ig": "12:00"
+          },
+          "helyszin": "I. előadó",
+          "oktato": "Dr. Fazekas Levente",
+          "szak": "Mérnökinformatikus"
+        }
+      ]
+    }
+  }

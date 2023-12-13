@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
 
+<!-- 1-1 KAPCSOLAT MEGHATÁROZÁSA-->
+
+<xs:unique name="Hadsereg_Főparancsnok_egy_egy">
+        <xs:selector xpath="Főparancsnok"/>
+        <xs:field xpath="@Hadsereg"/>
+</xs:unique>
+
 <!-- SAJÁT TÍPUSOK MEGHATÁROZÁSA-->
 
 <xs:simpleType name="fejlettségTipus">

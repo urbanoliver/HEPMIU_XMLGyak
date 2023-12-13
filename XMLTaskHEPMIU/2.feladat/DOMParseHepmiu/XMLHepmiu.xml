@@ -1,18 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Hadsereg_HEPMIU xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Hadsereg_HEPMIU xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
 
 <!--HADSEREG PÉLDÁNYOSÍTÁSA-->
 
 <Hadsereg hadseregID="1">
     <létszám>9000</létszám>
     <országNév>Hungary</országNév>
+
     <pozíció>Dél-Alföld</pozíció>
+    <pozíció>Tiszakoz</pozíció>
+    <pozíció>Dunantul</pozíció>
+
     <fejlettség>
         <ütőképesség>közepes</ütőképesség>
         <támadás>erős</támadás>
         <védekezés>gyenge</védekezés>
+    </fejlettség>
+
+</Hadsereg>
+
+<Hadsereg hadseregID="2">
+    <létszám>6000</létszám>
+    <országNév>Hungary</országNév>
+
+    <pozíció>Dél-Alföld</pozíció>
+    <pozíció>Duanatuli-kozephegyseg</pozíció>
+    <pozíció>Vajdasag</pozíció>
+
+    <fejlettség>
+        <ütőképesség>gyenge</ütőképesség>
+        <támadás>erős</támadás>
+        <védekezés>gyenge</védekezés>
+    </fejlettség>
+
+</Hadsereg>
+
+<Hadsereg hadseregID="3">
+    <létszám>20000</létszám>
+    <országNév>Hungary</országNév>
+
+    <pozíció>Dél-Alföld</pozíció>
+    <pozíció>Tiszakoz</pozíció>
+    <pozíció>Eszaki-kozephegyseg</pozíció>
+
+    <fejlettség>
+        <ütőképesség>közepes</ütőképesség>
+        <támadás>erős</támadás>
+        <védekezés>közepes</védekezés>
     </fejlettség>
 
 </Hadsereg>
@@ -25,23 +59,37 @@ xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
     <szolgIdő>30</szolgIdő>
 </Főparancsnok>
 
+<Főparancsnok F_sorszám="2245" irányítja="2">
+    <név>Hári János</név>
+    <rang>tábornagy</rang>
+    <életkor>52</életkor>
+    <szolgIdő>32</szolgIdő>
+</Főparancsnok>
+
+<Főparancsnok F_sorszám="1717" irányítja="3">
+    <név>Kovács Zétény</név>
+    <rang>tábornok</rang>
+    <életkor>58</életkor>
+    <szolgIdő>36</szolgIdő>
+</Főparancsnok>
+
 
 <!--TISZTEK PÉLDÁNYOSÍTÁSA-->
-<Tisztek T_sorszám="2323" F_parancsnok="4545">
+<Tisztek F_parancsnok="4545" T_sorszám="2323">
     <név>Király Zoltán</név>
     <rang>százados</rang>
     <életkor>42</életkor>
     <szolgIdő>22</szolgIdő>
 </Tisztek>
 
-<Tisztek T_sorszám="2336" F_parancsnok="4545">
+<Tisztek F_parancsnok="4545" T_sorszám="2336">
     <név>Nagy Zsolt</név>
     <rang>ezredes</rang>
     <életkor>48</életkor>
     <szolgIdő>28</szolgIdő>
 </Tisztek>
 
-<Tisztek T_sorszám="9836" F_parancsnok="4545">
+<Tisztek F_parancsnok="4545" T_sorszám="9836">
     <név>Szabó Gyula</név>
     <rang>őrnagy</rang>
     <életkor>50</életkor>
@@ -68,7 +116,7 @@ xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
 </Katonák>
 
 <Katonák K_sorszám="7123" T_parancsnok="9836" szolgHelye="56">
-    <név>Tóth Bendegúz</név>
+    <név>Kovács István</név>
     <rang>tizedes</rang>
     <életkor>23</életkor>
     <szolgIdő>3</szolgIdő>
@@ -77,20 +125,64 @@ xs:noNamespaceSchemaLocation="XMLSchemaHEPMIU.xsd">
 
 
 <!--FEGYVERNEMEK  PÉLDÁNYOSÍTÁSA-->
+
+
+
+<!--SZARAZFOLDI EROK  PÉLDÁNYOSÍTÁSA-->
 <Szárazföldi_erők SzE_ID="56">
     <létszám>5000</létszám>
     <SzföldiJárművekSzáma>250</SzföldiJárművekSzáma>
 
 </Szárazföldi_erők>
 
-<Tengerészet Teng_ID="23">
+<Szárazföldi_erők SzE_ID="12">
+    <létszám>2500</létszám>
+    <SzföldiJárművekSzáma>125</SzföldiJárművekSzáma>
+
+</Szárazföldi_erők>
+
+<Szárazföldi_erők SzE_ID="36">
+    <létszám>6800</létszám>
+    <SzföldiJárművekSzáma>550</SzföldiJárművekSzáma>
+
+</Szárazföldi_erők>
+
+
+
+
+<!--TENGERESZET  PÉLDÁNYOSÍTÁSA-->
+<Tengerészet Teng_ID="26">
     <létszám>2000</létszám>
+    <HajókSzáma>6</HajókSzáma>
+</Tengerészet>
+
+<Tengerészet Teng_ID="48">
+    <létszám>2500</létszám>
     <HajókSzáma>5</HajókSzáma>
 </Tengerészet>
 
-<Légierő Leg_ID="18">
-    <létszám>2000</létszám>
+<Tengerészet Teng_ID="23">
+    <létszám>3600</létszám>
+    <HajókSzáma>12</HajókSzáma>
+</Tengerészet>
+
+
+
+
+<!--LEGIERO  PÉLDÁNYOSÍTÁSA-->
+<Légierő Leg_ID="13">
+    <létszám>1500</létszám>
+    <RepülőkSzáma>90</RepülőkSzáma>
+</Légierő>
+
+<Légierő Leg_ID="21">
+    <létszám>3400</létszám>
     <RepülőkSzáma>120</RepülőkSzáma>
+</Légierő>
+
+<Légierő Leg_ID="18">
+    <létszám>4000</létszám>
+    <RepülőkSzáma>150</RepülőkSzáma>
 </Légierő>
 
 </Hadsereg_HEPMIU>

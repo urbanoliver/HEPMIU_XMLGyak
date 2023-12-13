@@ -1,4 +1,4 @@
-package hu.domparse.hepmiu;
+package hu.domparse;
 
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.Scanner;
 
 public class DomQueryHepmiu {
-
+	
 	public static void main(String[] args) {
 		try {
 			File xmlFile = new File("XMLHepmiu.xml");
@@ -17,7 +17,7 @@ public class DomQueryHepmiu {
 			doc.getDocumentElement().normalize();
 			
 			
-			//LEK…RDEZNI KÕV¡NT ELEMENT LEK…RDEZ…SE
+			//LEK√âRDEZNI K√çV√ÅNT ELEMENT LEK√âRDEZ√âSE
 
 			Scanner sc = new Scanner(System.in);
 
@@ -47,11 +47,11 @@ public class DomQueryHepmiu {
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) node;
 
-				if (elementName.equalsIgnoreCase("Katon·k") || elementName.equalsIgnoreCase("Tisztek")
-						|| elementName.equalsIgnoreCase("Fıparancsnok")) {
-					if (element.getAttribute(elementName.charAt(0) + "_sorsz·m").equals(elementID)) {
+				if (elementName.equalsIgnoreCase("Katon√°k") || elementName.equalsIgnoreCase("Tisztek")
+						|| elementName.equalsIgnoreCase("F√µparancsnok")) {
+					if (element.getAttribute(elementName.charAt(0) + "_sorsz√°m").equals(elementID)) {
 						
-						// ELEMENTEK KIÕR¡SA …RT…KEIKKEL EGY‹TT
+						// ELEMENTEK KI√çR√ÅSA √âRT√âKEIKKEL EGY√úTT
 						
 						
 						System.out.println("Element Neve: " + element.getNodeName());
@@ -71,14 +71,14 @@ public class DomQueryHepmiu {
 					}
 				}
 
-				else if (elementName.equalsIgnoreCase("Sz·razfˆldi_erık") || elementName.equalsIgnoreCase("TengerÈszet")
-						|| elementName.equalsIgnoreCase("LÈgierı")) {
+				else if (elementName.equalsIgnoreCase("Sz√°razf√∂ldi_er√µk") || elementName.equalsIgnoreCase("Tenger√©szet")
+						|| elementName.equalsIgnoreCase("L√©gier√µ")) {
 					if (element.getAttribute("SzE_ID").equals(elementID)
 							|| element.getAttribute("Teng_ID").equals(elementID)
 							|| element.getAttribute("Leg_ID").equals(elementID)) {
 						
 						
-						// ELEMENTEK KIÕR¡SA …RT…KEIKKEL EGY‹TT
+						// ELEMENTEK KI√çR√ÅSA √âRT√âKEIKKEL EGY√úTT
 						
 						
 						System.out.println("Element Neve: " + element.getNodeName());
@@ -103,7 +103,7 @@ public class DomQueryHepmiu {
 					if (element.getAttribute("hadseregID").equals(elementID)) {
 						
 						
-						// ELEMENTEK KIÕR¡SA …RT…KEIKKEL EGY‹TT
+						// ELEMENTEK KI√çR√ÅSA √âRT√âKEIKKEL EGY√úTT
 						
 						
 						

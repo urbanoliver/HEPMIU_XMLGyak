@@ -1,4 +1,4 @@
-package hu.domparse.hepmiu;
+package hu.domparse;
 
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -7,6 +7,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.Scanner;
+
 
 public class DomModifyHepmiu {
 	public static void main(String[] args) {
@@ -20,16 +21,16 @@ public class DomModifyHepmiu {
 
 			Scanner sc = new Scanner(System.in);
 
-			System.out.println("Adja meg a mÛdosÌtani kÌv·nt element nevÈt!");
+			System.out.println("Adja meg a m√≥dos√≠tani k√≠v√°nt element nev√©t!");
 			String elementName = sc.nextLine();
 
-			System.out.println("Adja meg a mÛdosÌtani kÌv·nt element ID-j·t!");
+			System.out.println("Adja meg a m√≥dos√≠tani k√≠v√°nt element ID-j√°t!");
 			String elementID = sc.nextLine();
 
-			System.out.println("Adja meg a mÛdosÌtani kÌv·nt element attrib˙tum·t vagy gyerekÈnek nevÈt!");
+			System.out.println("Adja meg a m√≥dos√≠tani k√≠v√°nt element attrib√∫tum√°t vagy gyerek√©nek nev√©t!");
 			String attributeNameOrChildName = sc.nextLine();
 
-			System.out.println("Adja meg az ˙j ÈrtÈkÈt");
+			System.out.println("Adja meg az √∫j √©rt√©k√©t");
 			String newValue = sc.nextLine();
 
 			modifyElementByID(doc, elementName, elementID, attributeNameOrChildName, newValue);
@@ -38,7 +39,7 @@ public class DomModifyHepmiu {
 
 			writeToFile(doc, "XMLHepmiu1.xml");
 
-			System.out.println("Adat sikeresen mÛdosÌtva!");
+			System.out.println("Adat sikeresen m√≥dos√≠tva!");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,9 +56,9 @@ public class DomModifyHepmiu {
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) node;
 
-				if (elementName.equalsIgnoreCase("Katon·k") || elementName.equalsIgnoreCase("Tisztek")
-						|| elementName.equalsIgnoreCase("Fıparancsnok")) {
-					if (element.getAttribute(elementName.charAt(0) + "_sorsz·m").equals(elementID)) {
+				if (elementName.equalsIgnoreCase("Katon√°k") || elementName.equalsIgnoreCase("Tisztek")
+						|| elementName.equalsIgnoreCase("F√µparancsnok")) {
+					if (element.getAttribute(elementName.charAt(0) + "_sorsz√°m").equals(elementID)) {
 
 						if (element.hasAttribute(attributeNameOrChildName)) {
 							element.setAttribute(attributeNameOrChildName, newValue);
@@ -68,14 +69,14 @@ public class DomModifyHepmiu {
 								Node childNode = childNodes.item(0);
 								childNode.setTextContent(newValue);
 							} else {
-								System.out.println("Adat tÌpus nem tal·lhatÛ: " + attributeNameOrChildName);
+								System.out.println("Adat t√≠pus nem tal√°lhat√≥: " + attributeNameOrChildName);
 							}
 						}
 					}
 				}
 
-				else if (elementName.equalsIgnoreCase("Sz·razfˆldi_erık") || elementName.equalsIgnoreCase("TengerÈszet")
-						|| elementName.equalsIgnoreCase("LÈgierı")) {
+				else if (elementName.equalsIgnoreCase("Sz√°razf√∂ldi_er√µk") || elementName.equalsIgnoreCase("Tenger√©szet")
+						|| elementName.equalsIgnoreCase("L√©gier√µ")) {
 					if (element.getAttribute("SzE_ID").equals(elementID)
 							|| element.getAttribute("Teng_ID").equals(elementID)
 							|| element.getAttribute("Leg_ID").equals(elementID)) {
@@ -89,7 +90,7 @@ public class DomModifyHepmiu {
 								Node childNode = childNodes.item(0);
 								childNode.setTextContent(newValue);
 							} else {
-								System.out.println("Adat tÌpus nem tal·lhatÛ: " + attributeNameOrChildName);
+								System.out.println("Adat t√≠pus nem tal√°lhat√≥: " + attributeNameOrChildName);
 							}
 						}
 					}
@@ -108,7 +109,7 @@ public class DomModifyHepmiu {
 								Node childNode = childNodes.item(0);
 								childNode.setTextContent(newValue);
 							} else {
-								System.out.println("Adat tÌpus nem tal·lhatÛ: " + attributeNameOrChildName);
+								System.out.println("Adat t√≠pus nem tal√°lhat√≥: " + attributeNameOrChildName);
 							}
 						}
 					}
@@ -132,4 +133,5 @@ public class DomModifyHepmiu {
 			e.printStackTrace();
 		}
 	}
+
 }

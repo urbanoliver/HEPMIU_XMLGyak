@@ -1,4 +1,4 @@
-package hu.domparse.hepmiu;
+package hu.domparse;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,7 +15,8 @@ import java.util.StringJoiner;
 import org.w3c.dom.*;
 
 public class DOMWriteHepmiu {
-	public static void main(String[] args) {
+	
+public static void main(String[] args) {
 		
 		writeElementsToFileAndConsole();
 	}
@@ -25,7 +26,11 @@ public class DOMWriteHepmiu {
 			Document document = prepareDocument();
 			Element rootElement = document.createElement("Hadsereg_HEPMIU");
 			document.appendChild(rootElement);
+			
+			
 			addElements(document, rootElement);
+			
+			
 			saveDocument(document);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,17 +47,24 @@ public class DOMWriteHepmiu {
 
 	private static void addElements(Document document, Element rootElement) {
 		addHadsereg(document, rootElement,"1", "9000",
-				"Hungary","DÈl-Alfˆld","kˆzepes", "erıs", "gyenge");
-		addFoparancsnok(document, rootElement, "4545", "1", "Nagy JÛzsef", "vezÈrezredes", "56", "30");
-		addTisztek(document, rootElement, "2323", "4545", "Kir·ly Zolt·n", "sz·zados", "42", "22");
+				"Hungary","D√©l-Alf√∂ld","k√∂zepes", "er√µs", "gyenge");
+		addHadsereg(document, rootElement,"2", "5000",
+				"Hungary","Dun√°nt√∫l","gyenge", "er√µs", "gyenge");
+		addHadsereg(document, rootElement,"3", "14000",
+				"Hungary","Vajdas√°g","k√∂zepes", "er√µs", "er≈ës");
+		addFoparancsnok(document, rootElement, "4545", "1", "Nagy J√≥zsef", "vez√©rezredes", "56", "30");
+		addFoparancsnok(document, rootElement, "4545", "2", "H√°ri J√°nos", "t√°bornagy", "52", "32");
+		addFoparancsnok(document, rootElement, "4545", "3", "Kov√°cs Z√©t√©ny", "t√°bornok", "58", "36");
+		addTisztek(document, rootElement, "2323", "4545", "Kir√°ly Zolt√°n", "sz√°zados", "42", "22");
 		addTisztek(document, rootElement, "2336", "4545", "Nagy Zsolt", "ezredes", "48", "28");
-		addTisztek(document, rootElement, "9836", "4545", "SzabÛ Gyula", "ırnagy", "50", "30");
-		addKatonak(document, rootElement, "7874", "9836", "56", "SzabÛ KristÛf", "tizedes", "20", "1");
-		addKatonak(document, rootElement, "4921", "9836", "56", "TÛth Bendeg˙z", "hadnagy", "28", "10");
-		addKatonak(document, rootElement, "7123", "9836", "56", "Kov·cs Istv·n", "tizedes", "23", "3");
+		addTisztek(document, rootElement, "9836", "4545", "Szab√≥ Gyula", "√µrnagy", "50", "30");
+		addKatonak(document, rootElement, "7874", "9836", "56", "Szab√≥ Krist√≥f", "tizedes", "20", "1");
+		addKatonak(document, rootElement, "4921", "9836", "56", "T√≥th Bendeg√∫z", "hadnagy", "28", "10");
+		addKatonak(document, rootElement, "7123", "9836", "56", "Kov√°cs Istv√°n", "tizedes", "23", "3");
 		addSzarazfoldierok(document, rootElement, "56", "5000", "250");
 		addTengereszet(document, rootElement, "23", "2000", "5");
-		addLegiero(document, rootElement, "18", "2000", "120");
+		addTengereszet(document, rootElement, "53", "3500", "12");
+		addTengereszet(document, rootElement, "33", "1400", "8");
 
 	}
 
@@ -71,80 +83,119 @@ public class DOMWriteHepmiu {
 	}
 
 	private static void printDocument(Document document) {
-		try {
-			File xmlFile = new File("XMLHepmiu1.xml");
-			PrintWriter writer = new PrintWriter(new FileWriter(xmlFile, true));
+		 try {
 
-			Element rootElement = document.getDocumentElement();
-			String rootName = rootElement.getTagName();
-			StringJoiner rootAttributes = new StringJoiner(" ");
+	            File xmlFile = new File("XMLHepmiu2.xml");
 
-			NamedNodeMap rootAttributeMap = rootElement.getAttributes();
-			for (int i = 0; i < rootAttributeMap.getLength(); i++) {
-				Node attribute = rootAttributeMap.item(i);
-				rootAttributes.add(attribute.getNodeName() + "=\"" + attribute.getNodeValue() + "\"");
-			}
+	            PrintWriter writer = new PrintWriter(new FileWriter(xmlFile, true));
 
-			System.out.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-			writer.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+	            Element rootElement = document.getDocumentElement();
+	            String rootName = rootElement.getTagName();
+	            
+	            StringJoiner rootAttributes = new StringJoiner(" ");
 
-			System.out.print("<" + rootName + " " + rootAttributes.toString() + ">\n");
-			writer.print("<" + rootName + " " + rootAttributes.toString() + ">\n");
+	            NamedNodeMap rootAttributeMap = rootElement.getAttributes();
 
-			NodeList csapatList = document.getElementsByTagName("Csapat");
-			printNodeList(csapatList, writer);
-			System.out.println("");
-			writer.println("");
+	            for (int i = 0; i < rootAttributeMap.getLength(); i++) {
+	                Node attribute = rootAttributeMap.item(i);
+	                rootAttributes.add(attribute.getNodeName() + "=\"" + attribute.getNodeValue() + "\"");
+	            }
 
-			System.out.println("</" + rootName + ">");
-			writer.append("</" + rootName + ">");
+	            System.out.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+	            writer.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 
-			writer.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	            System.out.print("<" + rootName + " " + rootAttributes.toString() + ">\n");
+	            writer.print("<" + rootName + " " + rootAttributes.toString() + ">\n");
+	            
+	            NodeList hadseregek = document.getElementsByTagName("Hadsereg");
+	            NodeList foparancsnok = document.getElementsByTagName("F≈ëparancsnok");
+	            NodeList tisztek = document.getElementsByTagName("Tisztek");
+	            NodeList katonak = document.getElementsByTagName("Katon√°k");
+	            NodeList szarazfoldierok = document.getElementsByTagName("Sz√°razf√∂ldi_er≈ëk");
+	            NodeList tengereszet = document.getElementsByTagName("Tenger√©szet");
+	            NodeList legiero = document.getElementsByTagName("L√©gier≈ë");
+
+	            printNodeList(hadseregek, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            printNodeList(foparancsnok, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            printNodeList(tisztek, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            printNodeList(katonak, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            printNodeList(szarazfoldierok, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            printNodeList(tengereszet, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            
+	            printNodeList(legiero, writer);
+	            System.out.println("");
+	            writer.println("");
+	            
+	            
+	            
+	            System.out.println("</" + rootName + ">");
+	            writer.append("</" + rootName + ">");
+
+	            writer.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+		
 	}
 
-	private static void addHadsereg(Document document, Element rootElement, String hadseregID, String lÈtszam,
-			String orszagNev, String pozicio, String utokÈpessseg, String tamadas, String vedelekezes) {
+	private static void addHadsereg(Document document, Element rootElement, String hadseregID, String l√©tszam,
+			String orszagNev, String pozicio, String utok√©pessseg, String tamadas, String vedelekezes) {
 		Element hadsereg = document.createElement("Hadsereg");
 		hadsereg.setAttribute("hadseregID", hadseregID);
 
-		Element letszamElement = createElement(document, "lÈtsz·m", lÈtszam);
+		Element letszamElement = createElement(document, "l√©tsz√°m", l√©tszam);
 		hadsereg.appendChild(letszamElement);
 
-		Element orszagNevElement = createElement(document, "orsz·gNÈv", orszagNev);
+		Element orszagNevElement = createElement(document, "orsz√°gN√©v", orszagNev);
 		hadsereg.appendChild(orszagNevElement);
 
-		Element pozicioElement = createElement(document, "pozÌciÛ", pozicio);
+		Element pozicioElement = createElement(document, "poz√≠ci√≥", pozicio);
 		hadsereg.appendChild(pozicioElement);
 
-		Element fejlettsÈgElement = document.createElement("fejlettsÈg");
+		Element fejletts√©gElement = document.createElement("fejletts√©g");
 
-		Element utokÈpessÈgElement = createElement(document, "¸tıkÈpessÈg", utokÈpessseg);
-		fejlettsÈgElement.appendChild(utokÈpessÈgElement);
+		Element utok√©pess√©gElement = createElement(document, "√ºt√µk√©pess√©g", utok√©pessseg);
+		fejletts√©gElement.appendChild(utok√©pess√©gElement);
 
-		Element tamadasElement = createElement(document, "t·mad·s", tamadas);
-		fejlettsÈgElement.appendChild(tamadasElement);
+		Element tamadasElement = createElement(document, "t√°mad√°s", tamadas);
+		fejletts√©gElement.appendChild(tamadasElement);
 
-		Element vedelekezesElement = createElement(document, "vÈdekezÈs", vedelekezes);
-		fejlettsÈgElement.appendChild(vedelekezesElement);
+		Element vedelekezesElement = createElement(document, "v√©dekez√©s", vedelekezes);
+		fejletts√©gElement.appendChild(vedelekezesElement);
 
-		hadsereg.appendChild(fejlettsÈgElement);
+		hadsereg.appendChild(fejletts√©gElement);
 
 		rootElement.appendChild(hadsereg);
 	}
 
 	private static void addFoparancsnok(Document document, Element rootElement, String fsorszam, String iranyitja,
 			String nev, String rang, String eletkor, String szolgIdo) {
-		Element foparancsnok = document.createElement("Fıparancsnok");
-		foparancsnok.setAttribute("F_sorsz·m", fsorszam);
-		foparancsnok.setAttribute("ir·nyÌtja", iranyitja);
+		Element foparancsnok = document.createElement("F√µparancsnok");
+		foparancsnok.setAttribute("F_sorsz√°m", fsorszam);
+		foparancsnok.setAttribute("ir√°ny√≠tja", iranyitja);
 
-		Element nevElement = createElement(document, "nÈv", nev);
+		Element nevElement = createElement(document, "n√©v", nev);
 		Element rangElement = createElement(document, "rang", rang);
-		Element eletkorElement = createElement(document, "Èletkor", eletkor);
-		Element szolgIdoElement = createElement(document, "szolgIdı", szolgIdo);
+		Element eletkorElement = createElement(document, "√©letkor", eletkor);
+		Element szolgIdoElement = createElement(document, "szolgId√µ", szolgIdo);
 
 		foparancsnok.appendChild(nevElement);
 		foparancsnok.appendChild(rangElement);
@@ -157,13 +208,13 @@ public class DOMWriteHepmiu {
 	private static void addTisztek(Document document, Element rootElement, String tsorszam, String fparancsnok,
 			String nev, String rang, String eletkor, String szolgIdo) {
 		Element tisztek = document.createElement("Tisztek");
-		tisztek.setAttribute("T_sorsz·m", tsorszam);
+		tisztek.setAttribute("T_sorsz√°m", tsorszam);
 		tisztek.setAttribute("F_parancsnok", fparancsnok);
 
-		Element nevElement = createElement(document, "nÈv", nev);
+		Element nevElement = createElement(document, "n√©v", nev);
 		Element rangElement = createElement(document, "rang", rang);
-		Element eletkorElement = createElement(document, "Èletkor", eletkor);
-		Element szolgIdoElement = createElement(document, "szolgIdı", szolgIdo);
+		Element eletkorElement = createElement(document, "√©letkor", eletkor);
+		Element szolgIdoElement = createElement(document, "szolgId√µ", szolgIdo);
 
 		tisztek.appendChild(nevElement);
 		tisztek.appendChild(rangElement);
@@ -175,15 +226,15 @@ public class DOMWriteHepmiu {
 
 	private static void addKatonak(Document document, Element rootElement, String ksorszam, String tparancsnok,
 			String szolgHelye, String nev, String rang, String eletkor, String szolgIdo) {
-		Element katonak = document.createElement("Katon·k");
-		katonak.setAttribute("K_sorsz·m", ksorszam);
+		Element katonak = document.createElement("Katon√°k");
+		katonak.setAttribute("K_sorsz√°m", ksorszam);
 		katonak.setAttribute("T_parancsnok", tparancsnok);
 		katonak.setAttribute("szolgHelye", szolgHelye);
 
-		Element nevElement = createElement(document, "nÈv", nev);
+		Element nevElement = createElement(document, "n√©v", nev);
 		Element rangElement = createElement(document, "rang", rang);
-		Element eletkorElement = createElement(document, "Èletkor", eletkor);
-		Element szolgIdoElement = createElement(document, "szolgIdı", szolgIdo);
+		Element eletkorElement = createElement(document, "√©letkor", eletkor);
+		Element szolgIdoElement = createElement(document, "szolgId√µ", szolgIdo);
 
 		katonak.appendChild(nevElement);
 		katonak.appendChild(rangElement);
@@ -195,11 +246,11 @@ public class DOMWriteHepmiu {
 
 	private static void addSzarazfoldierok(Document document, Element rootElement, String szE_ID, String letszam,
 			String szfoldiJarmuvekSzama) {
-		Element szarazfoldierok = document.createElement("Sz·razfˆldi_erık");
+		Element szarazfoldierok = document.createElement("Sz√°razf√∂ldi_er√µk");
 		szarazfoldierok.setAttribute("SzE_ID", szE_ID);
 
-		Element letszamElement = createElement(document, "lÈtsz·m", letszam);
-		Element szfoldiJarmuvekSzamaElement = createElement(document, "SzfˆldiJ·rm˚vekSz·ma", szfoldiJarmuvekSzama);
+		Element letszamElement = createElement(document, "l√©tsz√°m", letszam);
+		Element szfoldiJarmuvekSzamaElement = createElement(document, "Szf√∂ldiJ√°rm√ªvekSz√°ma", szfoldiJarmuvekSzama);
 
 		szarazfoldierok.appendChild(letszamElement);
 		szarazfoldierok.appendChild(szfoldiJarmuvekSzamaElement);
@@ -209,11 +260,11 @@ public class DOMWriteHepmiu {
 
 	private static void addTengereszet(Document document, Element rootElement, String teng_ID, String letszam,
 			String hajokSzama) {
-		Element tengereszet = document.createElement("TengerÈszet");
+		Element tengereszet = document.createElement("Tenger√©szet");
 		tengereszet.setAttribute("Teng_ID", teng_ID);
 
-		Element letszamElement = createElement(document, "lÈtsz·m", letszam);
-		Element hajokSzamaElement = createElement(document, "HajÛkSz·ma", hajokSzama);
+		Element letszamElement = createElement(document, "l√©tsz√°m", letszam);
+		Element hajokSzamaElement = createElement(document, "Haj√≥kSz√°ma", hajokSzama);
 
 		tengereszet.appendChild(letszamElement);
 		tengereszet.appendChild(hajokSzamaElement);
@@ -223,11 +274,11 @@ public class DOMWriteHepmiu {
 
 	private static void addLegiero(Document document, Element rootElement, String leg_ID, String letszam,
 			String repulokSzama) {
-		Element legiero = document.createElement("LÈgierı");
+		Element legiero = document.createElement("L√©gier√µ");
 		legiero.setAttribute("Leg_ID", leg_ID);
 
-		Element letszamElement = createElement(document, "lÈtsz·m", letszam);
-		Element repulokSzamaElement = createElement(document, "Rep¸lıkSz·ma", repulokSzama);
+		Element letszamElement = createElement(document, "l√©tsz√°m", letszam);
+		Element repulokSzamaElement = createElement(document, "Rep√ºl√µkSz√°ma", repulokSzama);
 
 		legiero.appendChild(letszamElement);
 		legiero.appendChild(repulokSzamaElement);
@@ -295,4 +346,5 @@ public class DOMWriteHepmiu {
 	    }
 	    return sb.toString();
 	}
+
 }
